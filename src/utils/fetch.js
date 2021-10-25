@@ -10,19 +10,20 @@ const customFetch = async (url, options) => {
       }
 };
 
-export const httpGet = async (url) => {
-    return customFetch(url);
+export const httpGet = async (url, options) => {
+    return customFetch(url, options);
 }
 
 export const httpPost = async (url, options) => {
-    return customFetch(url, {
+    const newOptions ={
         headers: {
             Accept: 'appliation/json',
             'Content-Type': 'application/json',
         },
         method: 'POST',
         ...options,
-    });
+    }
+    return customFetch(url, newOptions);
 }
 
 export const httpPatch = async (url, options) => {

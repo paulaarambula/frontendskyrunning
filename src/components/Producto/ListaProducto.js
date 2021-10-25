@@ -1,13 +1,23 @@
-import React, { useContext } from "react";
-import { AppContext } from "../AppContext/AppContext";
+import React, { useEffect, useState } from "react";
+//import { AppContext } from "../AppContext/AppContext";
 import { Link } from "react-router-dom";
+import { httpGet } from '../../utils/fetch';
 import Product from "./Product";
 
 const ListaProducto = (props) => {
-  const datos = useContext(AppContext);
+  const [products, setProducts] = useState([]);
+
+  useEffect(()=>{
+    const getProduct = async () =>{
+      const products = await httpGet(`${process.env.REACT_APP_BACKEND_URL}/producto/read-poduct`);
+      setProducts(products);
+    }
+    getProduct();
+  }, []);
+
   return (
     <div>
-      {(datos.products || []).map((item, index) => {
+      {(products || []).map((item, index) => {
         return (
           <Product
             key={index}
