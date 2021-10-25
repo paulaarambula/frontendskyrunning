@@ -2,18 +2,13 @@ import React, { useEffect, useState } from "react";
 //import { AppContext } from "../AppContext/AppContext";
 import { Link } from "react-router-dom";
 import { httpGet } from '../../utils/fetch';
-import { getToken } from '../../utils/getToken';
 import Product from "./Product";
 
 const ListaProducto = (props) => {
   const [products, setProducts] = useState([]);
 
   useEffect(()=>{
-    const token = getToken();
-    if (!token) {
-      window.location.href = '/'; // redirecciona a la página principal
-      return;
-    }
+
     const getProduct = async () =>{
       const products = await httpGet(`${process.env.REACT_APP_BACKEND_URL}/producto/read-poduct`);
       setProducts(products);
