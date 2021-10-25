@@ -27,7 +27,7 @@ export default function Inicio() {
                 <Link
                   className="options"
                   style={{ textDecoration: "none", color: "white" }}
-                  to="/productos"
+                  to="/producto"
                 >
                   <b> Productos </b>
                 </Link>
@@ -35,7 +35,7 @@ export default function Inicio() {
                 <Link
                   className="options"
                   style={{ textDecoration: "none", color: "white" }}
-                  to="/ventas"
+                  to="/venta"
                 >
                   <b> Ventas </b>
                 </Link>
@@ -43,10 +43,10 @@ export default function Inicio() {
             </div>
             <Switch>
               <AppContextComponent>
-              <Route path="/productos">
+              <Route path="/producto">
                 <Producto />
               </Route> 
-              <Route path="/ventas">
+              <Route path="/venta">
                 <Ventas />
               </Route>
               </AppContextComponent>

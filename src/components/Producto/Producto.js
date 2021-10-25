@@ -12,24 +12,24 @@ export default function Producto(props) {
         
           <Link
             className={'botonProducto'}            
-            to={"/registro-producto"}
+            to={"/producto/create-product"}
           >
             <b>Registrar Producto</b>
           </Link>  
        
           <Link
             className={'botonProducto'}            
-            to={"/lista-producto"}
+            to={"/producto/read-product"}
           >
             <b>Ver lista de productos</b>
           </Link>
                
         <Switch>
           <AppContextComponent>
-          <Route path="/registro-producto">
+          <Route path="/producto/create-product">
             <RegistroProducto />
           </Route>   
-          <Route path="/lista-producto">
+          <Route path="/producto/read-product">
             <ListaProducto />
             </Route>   
             </AppContextComponent>

@@ -8,17 +8,17 @@ export default function RegistroProducto() {
   return (
     <div>
       <Router>
-        <Link className={"botonVenta"} to="/registro-venta">
+        <Link className={"botonVenta"} to="/venta/create-venta">
           <b>Registrar Venta</b>
         </Link>
-        <Link className={"botonVenta"} to="/lista-ventas">
+        <Link className={"botonVenta"} to="/venta/read-venta">
           <b>Ver ventas</b>
         </Link>
         <Switch>
-          <Route path="/registro-venta">
+          <Route path="/venta/create-venta">
             <RegistrarVenta />
           </Route>
-          <Route path="/lista-ventas">
+          <Route path="/venta/read-venta">
             <ListaVentas />
           </Route>
         </Switch>

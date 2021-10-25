@@ -1,19 +1,20 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
-import { AppContext } from "../AppContext/AppContext";
+//import { AppContext } from "../AppContext/AppContext";
 import "./RegistroProducto.css";
-import { useContext } from "react";
+import { httpPost } from "../../utils/fetch";
+//import { useContext } from "react";
 
 const RegistroProducto = (props) => {
-  
-  const datos = useContext(AppContext);
+  // const datos = useContext(AppContext);
   const [valorIdProducto, cambiarValorIdProducto] = useState("");
   const [descripcionProducto, cambiarDescripcionProducto] = useState("");
   const [valorUnitarioProducto, cambiarValorUnitarioProducto] = useState("");
   const [estadoProducto, cambiarEstadoProducto] = useState("");
+  const [productoCreado, setProductoCreado] = useState(false);
 
-  const buttonClick = () => {
+  const buttonClick = async () => {
     const newProduct = {
       id: valorIdProducto,
       descripcion: descripcionProducto,
@@ -21,7 +22,19 @@ const RegistroProducto = (props) => {
       estado: estadoProducto,
       done: false,
     };
-    datos.setProducts([...datos.products, newProduct]);
+    //  datos.setProducts([...datos.products, newProduct]);
+    const createdProduct = await httpPost(
+      `${process.env.REACT_APP_BACKEND_URL}/producto/create-product`,
+      {
+        body: JSON.stringify(newProduct),
+      }
+    );
+    if (createdProduct._id) {
+      setProductoCreado(true);
+      setTimeout(() => {
+        setProductoCreado(false);
+      }, 3000);
+    }
   };
 
   return (
@@ -38,7 +51,6 @@ const RegistroProducto = (props) => {
               <b>Ingrese la Información del Producto</b>
             </th>
           </tr>
-
           <tr>
             <td id={"col1"}>
               <label for={"productId"}>
@@ -104,26 +116,24 @@ const RegistroProducto = (props) => {
                 onChange={(event) => {
                   cambiarEstadoProducto(event.target.value);
                 }}
-              />                
+              />
             </td>
           </tr>
         </tbody>
       </table>
-      <button className={'boton'} type={"button"} onClick={buttonClick}>
+      <button className={"boton"} type={"button"} onClick={buttonClick}>
         Registrar Producto
       </button>
 
-      <Link
-        className={"volver"}        
-        to="/productos"
-      >
+      <Link className={"volver"} to="/producto">
         <b>Volver</b>
       </Link>
       <br />
       <br />
-      <Link className={"button"} to={"/lista-producto"}>
+      <Link className={"button"} to={"/producto/read-product"}>
         Ver productos
       </Link>
+      {productoCreado && <p>Producto creado exitosamente</p>}
     </form>
   );
 };

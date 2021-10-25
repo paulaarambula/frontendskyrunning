@@ -8,7 +8,7 @@ export default function ListaVentas() {
       <Link
         className={"volver"}
         style={{ textDecoration: "none", color: "white" }}
-        to="/ventas"
+        to="/venta"
       >
         <b>Volver</b>
       </Link>
@@ -34,7 +34,7 @@ export default function ListaVentas() {
           </form>
         </div>
       </section>
-      <Link to={"/registro-venta"}>Registrar Venta</Link>
+      <Link to={"/venta/create-venta"}>Registrar Venta</Link>
     </div>
   );
 }

@@ -233,13 +233,13 @@ export default function RegistrarVenta(props) {
       <Link
         className={"volver"}
         style={{ textDecoration: "none", color: "white" }}
-        to="/ventas"
+        to="/venta"
       >
         <b>Volver</b>
       </Link>
       <br />
       <br />
-      <Link className={"button"} to={"/lista-ventas"}>
+      <Link className={"button"} to={"/venta/read-venta"}>
         Ver Ventas
       </Link>
     </form>

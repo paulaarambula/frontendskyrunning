@@ -30,7 +30,7 @@ const ListaProducto = (props) => {
         );
       })}
       <br />
-      <Link to={"/registro-producto"}>Registrar Producto</Link>
+      <Link to={"/producto/create-product"}>Registrar Producto</Link>
     </div>
   );
 };
