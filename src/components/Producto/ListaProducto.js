@@ -10,7 +10,7 @@ const ListaProducto = (props) => {
   useEffect(()=>{
 
     const getProduct = async () =>{
-      const products = await httpGet(`${process.env.REACT_APP_BACKEND_URL}/producto/read-poduct`);
+      const products = await httpGet(`${process.env.REACT_APP_BACKEND_URL}/producto/read-product`);
       setProducts(products);
     }
     getProduct();
