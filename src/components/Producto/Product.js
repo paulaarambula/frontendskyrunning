@@ -5,7 +5,7 @@ import './Product.css';
 
 const Product = (props) => {
   const deleteTask = async () =>{
-    httpDelete(`${process.env.REACT_APP_BACKEND_URL}/delete/${props.id}`)
+    httpDelete(`${process.env.REACT_APP_BACKEND_URL}/producto/read-product/${props._id}`)
     .then(()=>{
       window.location.reload(false);
     })
@@ -24,14 +24,14 @@ const Product = (props) => {
       <p>{props.valorUnitario}</p>
       <h4>Estado del Producto:</h4>
       <p>{props.estadoProducto}</p>
-      <a className='editar' href={`/edit/${props.id}`}>Editar producto</a>
+      <a className='editar' href={`/producto/read-product/edit/${props._id}`}>Editar producto</a>
       <button className='eliminar' onClick={deleteTask}>Eliminar producto</button>
     </div>
   );
 };
 
 Product.propTypes = {
-  id: PropTypes.string,
+ // id: PropTypes.string,
   descripcion: PropTypes.string,
   valorUnitario: PropTypes.string,
   estadoProducto: PropTypes.string,

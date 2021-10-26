@@ -9,7 +9,7 @@ import { httpPost } from "../../utils/fetch";
 const RegistroProducto = (props) => {
   
   // const datos = useContext(AppContext);
-  const [valorIdProducto, cambiarValorIdProducto] = useState("");
+  //const [valorIdProducto, cambiarValorIdProducto] = useState("");
   const [descripcionProducto, cambiarDescripcionProducto] = useState("");
   const [valorUnitarioProducto, cambiarValorUnitarioProducto] = useState("");
   const [estadoProducto, cambiarEstadoProducto] = useState("");
@@ -17,11 +17,9 @@ const RegistroProducto = (props) => {
 
   const buttonClick = async () => {
     const newProduct = {
-      id: valorIdProducto,
       descripcion: descripcionProducto,
-      valorUnitario: valorIdProducto,
+      valorUnitario: valorUnitarioProducto,
       estado: estadoProducto,
-      done: false,
     };
     //  datos.setProducts([...datos.products, newProduct]);
     const createdProduct = await httpPost(
@@ -51,24 +49,7 @@ const RegistroProducto = (props) => {
             <th colSpan="2">
               <b>Ingrese la Información del Producto</b>
             </th>
-          </tr>
-          <tr>
-            <td id={"col1"}>
-              <label for={"productId"}>
-                <h4>Id del Producto</h4>
-              </label>
-            </td>
-            <td>
-              <input
-                type={"text"}
-                name={"productId"}
-                value={valorIdProducto}
-                onChange={(event) => {
-                  cambiarValorIdProducto(event.target.value);
-                }}
-              />
-            </td>
-          </tr>
+          </tr>          
           <tr>
             <td id={"col1"}>
               <label for={"descripcion"}>
@@ -106,7 +87,7 @@ const RegistroProducto = (props) => {
           <tr>
             <td id={"col1"}>
               <label for={"estado"}>
-                <h4>Estado del Producto</h4>
+                <h4>Estado del Producto <br/> <li>Disponible</li><li>No Disponible</li></h4>
               </label>
             </td>
             <td>
