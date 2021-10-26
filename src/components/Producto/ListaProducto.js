@@ -22,7 +22,7 @@ const ListaProducto = (props) => {
         return (
           <Product
             key={index}
-            id={item.id}
+            _id={item._id}
             descripcion={item.descripcion}
             valorUnitario={item.valorUnitario}
             estadoProducto={item.estadoProducto}

@@ -15,40 +15,14 @@ const Product = (props) => {
 
   return (
     <div className="product">
-      <div>
-        <tr>
-          <td>
-            <h4>id</h4>
-          </td>
-          <td>
-            <p>{props.id}</p>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <h4>Descripción</h4>
-          </td>
-          <td>
-            <p>{props.descripcion}</p>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <h4>Valor Unitario</h4>
-          </td>
-          <td>
-            <p>{props.valorUnitario}</p>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <h4>Estado del Producto</h4>
-          </td>
-          <td>
-            <p>{props.estadoProducto}</p>
-          </td>
-        </tr>
-      </div>
+      <h4>id</h4>
+      <p>{props._id}</p>
+      <h4>Descripción</h4>
+      <p>{props.descripcion}</p>
+      <h4>Valor Unitario</h4>
+      <p>{props.valorUnitario}</p>
+      <h4>Estado del Producto</h4>
+      <p>{props.estadoProducto}</p>
       <a href={`/edit/${props.id}`}>Editar producto</a>
       <button onClick={deleteTask}>Eliminar producto</button>
     </div>
