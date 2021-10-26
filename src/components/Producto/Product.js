@@ -1,8 +1,18 @@
 import PropTypes from "prop-types";
-
+import { httpDelete } from "../../utils/fetch";
 import React from "react";
 
 const Product = (props) => {
+  const deleteTask = async () =>{
+    httpDelete(`${process.env.REACT_APP_BACKEND_URL}/delete/${props.id}`)
+    .then(()=>{
+      window.location.reload(false);
+    })
+    .catch((e) =>{
+      console.error(e);
+    });
+  };
+
   return (
     <div className="product">
       <div>
@@ -39,6 +49,8 @@ const Product = (props) => {
           </td>
         </tr>
       </div>
+      <a href={`/edit/${props.id}`}>Editar producto</a>
+      <button onClick={deleteTask}>Eliminar producto</button>
     </div>
   );
 };
