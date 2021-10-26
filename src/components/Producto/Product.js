@@ -4,7 +4,7 @@ import React from "react";
 import './Product.css';
 
 const Product = (props) => {
-  const deleteTask = async () =>{
+  const deleteProduct = async () =>{
     httpDelete(`${process.env.REACT_APP_BACKEND_URL}/producto/read-product/${props._id}`)
     .then(()=>{
       window.location.reload(false);
@@ -25,7 +25,7 @@ const Product = (props) => {
       <h4>Estado del Producto:</h4>
       <p>{props.estadoProducto}</p>
       <a className='editar' href={`/producto/read-product/edit/${props._id}`}>Editar producto</a>
-      <button className='eliminar' onClick={deleteTask}>Eliminar producto</button>
+      <button className='eliminar' onClick={deleteProduct}>Eliminar producto</button>
     </div>
   );
 };

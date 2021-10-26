@@ -1,81 +1,34 @@
 import React from 'react';
 import PropTypes from "prop-types";
+import './Venta.css';
 
 const Venta = (props) => {
+
     return (
         <div className='sale'>
-            <div>
-        <tr>
-          <td>
-            <h4>Número de venta</h4>
-          </td>
-          <td>
-            <p>{props.idVenta}</p>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <h4>Id Vendedor</h4>
-          </td>
-          <td>
-            <p>{props.idVendedor}</p>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <h4>Nombre del Vendedor</h4>
-          </td>
-          <td>
-            <p>{props.nombreVendedor}</p>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <h4>Documento del Identidad del Cliente</h4>
-          </td>
-          <td>
-            <p>{props.idCliente}</p>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <h4>id del Producto</h4>
-          </td>
-          <td>
-            <p>{props.valorIdProducto}</p>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <h4>Cantidad</h4>
-          </td>
-          <td>
-            <p>{props.cantidadProducto}</p>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <h4>Valor Unitario</h4>
-          </td>
-          <td>
-            <p>{props.valorUnitarioProducto}</p>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <h4>Valor Total</h4>
-          </td>
-          <td>
-            <p>{props.valorVenta}</p>
-          </td>
-        </tr>
-      </div>
-            
+          <h4>Número de venta</h4>
+          <p>{props._id}</p>
+          <h4>Id Vendedor</h4>
+          <p>{props.idVendedor}</p>
+          <h4>Nombre del Vendedor</h4>
+          <p>{props.nombreVendedor}</p>
+          <h4>Documento del Identidad del Cliente</h4>
+          <p>{props.idCliente}</p>
+          <h4>id del Producto</h4>
+          <p>{props.valorIdProducto}</p>
+          <h4>Cantidad</h4>
+          <p>{props.cantidadProducto}</p>
+          <h4>Valor Unitario</h4>
+          <p>{props.valorUnitarioProducto}</p>
+          <h4>Valor Total</h4>
+          <p>{props.valorVenta}</p>  
+          <a className='editar' href={`/producto/read-product/edit/${props._id}`}>Editar producto</a>
+      <button className='eliminar'>Eliminar producto</button>         
         </div>
     )
 };
 Venta.propTypes ={
-    idVenta: PropTypes.string,
+   // idVenta: PropTypes.string,
     valorVenta: PropTypes.string,
     valorIdProducto: PropTypes.string,
     valorUnitarioProducto: PropTypes.string,

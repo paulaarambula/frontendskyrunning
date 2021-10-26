@@ -20,10 +20,10 @@ export default function RegistrarVenta(props) {
 
   const buttonClick = () => {
     const newProduct = {
-      idVenta: valorIdVenta,
+      //idVenta: valorIdVenta,
       valorVenta: valorVenta,
       valorIdProducto: valorIdProducto,
-      valorUnitario: valorUnitarioProducto,
+      valorUnitarioProducto: valorUnitarioProducto,
       cantidadProducto: cantidadProducto,
       fechaVenta: fechaVenta,
       idCliente: idCliente,
