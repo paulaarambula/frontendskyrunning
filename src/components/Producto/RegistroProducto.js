@@ -7,6 +7,7 @@ import { httpPost } from "../../utils/fetch";
 //import { useContext } from "react";
 
 const RegistroProducto = (props) => {
+  
   // const datos = useContext(AppContext);
   const [valorIdProducto, cambiarValorIdProducto] = useState("");
   const [descripcionProducto, cambiarDescripcionProducto] = useState("");

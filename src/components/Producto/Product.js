@@ -16,16 +16,16 @@ const Product = (props) => {
 
   return (
     <div className="product">
-      <h4>id</h4>
+      <h4>ID:</h4>
       <p>{props._id}</p>
-      <h4>Descripción</h4>
+      <h4>Descripción:</h4>
       <p>{props.descripcion}</p>
-      <h4>Valor Unitario</h4>
+      <h4>Valor Unitario ($):</h4>
       <p>{props.valorUnitario}</p>
-      <h4>Estado del Producto</h4>
+      <h4>Estado del Producto:</h4>
       <p>{props.estadoProducto}</p>
-      <a href={`/edit/${props.id}`}>Editar producto</a>
-      <button onClick={deleteTask}>Eliminar producto</button>
+      <a className='editar' href={`/edit/${props.id}`}>Editar producto</a>
+      <button className='eliminar' onClick={deleteTask}>Eliminar producto</button>
     </div>
   );
 };
