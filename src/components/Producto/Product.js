@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import { httpDelete } from "../../utils/fetch";
 import React from "react";
+import './Product.css';
 
 const Product = (props) => {
   const deleteTask = async () =>{
